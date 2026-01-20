@@ -8,7 +8,9 @@
     <div id="navbar"></div>
 
     <script>
-      const BASE = "/portfolio-website";
+      const BASE = location.hostname.endsWith("github.io")
+        ? "/" + location.pathname.split("/")[1]
+        : "";
 
       fetch(`${BASE}/navbar.html`)
         .then((res) => res.text())
