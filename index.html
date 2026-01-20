@@ -9,10 +9,16 @@
     <div id="navbar"></div>
 
     <script>
-      fetch("navbar.html")
+      const BASE = "/portfolio-website";
+
+      fetch(`${BASE}/navbar.html`)
         .then((res) => res.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
+
+          document.querySelectorAll("#navbar a[data=href]").forEach((a) => {
+            a.href = BASE + a.getAttribute("data-href");
+          });
         });
     </script>
 
