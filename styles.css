@@ -29,3 +29,34 @@ body {
 .nav-links a:hover {
   text-decoration: underline;
 }
+
+.project-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px auto;
+  border-radius: 8px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 24px;
+}
+
+.card {
+  background: rgb(40, 45, 25);
+  color: white;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+/* individual sizing control */
+.card img {
+  width: min(100%, var(--w, 420px));
+  height: var(--h, 260px);
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
