@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background-color: rgb(104, 115, 69);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 /* navbar */
@@ -11,6 +11,9 @@ body {
   align-items: center;
   background-color: rgb(40, 45, 25);
   padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  z-index: inherit;
 }
 
 .nav-left {
@@ -19,7 +22,7 @@ body {
 }
 
 .nav-name {
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1.3rem;
   font-weight: bold;
 }
@@ -27,11 +30,11 @@ body {
 .nav-contact {
   margin-top: 4px;
   font-size: 0.85rem;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-contact a {
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
 }
 
@@ -40,7 +43,7 @@ body {
 }
 
 .nav-pages a {
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1.3rem;
   text-decoration: none;
   padding: 0 14px;
@@ -54,15 +57,74 @@ body {
   top: 50%;
   transform: translateY(-50%);
   height: 1.2em;
-  border-right: 2px solid white;
+  border-right: 2px solid rgba(255, 255, 255, 0.7);
 }
 
 .nav-pages a {
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   padding: 0 12px;
 }
 
 .nav-pages a:hover {
   text-decoration: underline;
+}
+
+.content-split {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* text | images */
+  gap: 32px;
+  align-items: start;
+  padding: 24px;
+}
+
+/* text */
+.text-column {
+  color: rgba(255, 255, 255, 0.7);
+}
+.text-column h2 {
+  margin-top: 0;
+}
+
+.text-column p {
+  line-height: 1.6;
+}
+
+/* image grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .content-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* shared look */
+.panel {
+  background-color: rgba(40, 45, 25, 0.95); /* text box background */
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* lighter variant if needed */
+.panel.light {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* optional: subtle border for definition */
+.panel.outlined {
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
