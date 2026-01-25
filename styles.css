@@ -115,13 +115,20 @@ html {
   grid-template-columns: 1fr 2fr; /* text | media */
   grid-template-areas: "text media";
   gap: 32px;
-  align-items: start;
+  align-items: stretch;
   padding: 24px;
 }
 
 /* map children to areas */
 .content-split .text-column {
-  grid-area: text;
+  display: flex;
+  text-align: center;
+}
+.content-split .text-column > .panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .content-split .image-panel {
@@ -130,8 +137,12 @@ html {
 
 /* reversed: media | text */
 .content-split.reverse {
-  grid-template-columns: 2fr 1fr; /* media | text */
+  grid-template-columns: minmax(0, 850px) 1fr;
   grid-template-areas: "media text";
+}
+
+.content-split.reverse .image-panel {
+  align-self: center;
 }
 
 .section-divider {
@@ -265,7 +276,7 @@ html {
   /* spacing math */
   --gap: 180px; /* distance between cards */
   --count: 15; /* number of cards */
-  --slot: 10s; /* time between cards */
+  --slot: 8s; /* time between cards */
   --travel: calc(var(--gap) * var(--count)); /* total travel distance */
   --start: calc(var(--travel) / 2);
   --end: calc(var(--travel) / -2);
