@@ -170,7 +170,7 @@ html {
   grid-template-areas:
     "text"
     "media";
-  justify-items: left;
+  justify-items: center;
 }
 
 .content-split.reverse .image-panel {
