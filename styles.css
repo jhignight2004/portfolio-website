@@ -240,15 +240,15 @@ html {
   /* spacing math */
   --gap: 180px; /* distance between cards */
   --count: 15; /* number of cards */
-  --slot: 3s; /* time between cards */
-  --travel: 2700px;
-  --start: 1350px;
-  --end: -1350px;
+  --slot: 8s; /* time between cards */
+  --travel: calc(var(--gap) * var(--count)); /* total travel distance */
+  --start: calc(var(--travel) / 2);
+  --end: calc(var(--travel) / -2);
 
   opacity: 1;
   will-change: transform;
 
-  animation: review-conveyor 45s linear infinite;
+  animation: review-conveyor calc(var(--count) * var(--slot)) linear infinite;
 }
 
 /* one-time setup: assign an index to each card */
