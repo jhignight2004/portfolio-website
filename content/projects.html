@@ -5,17 +5,14 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <div id="navbar"></div>
+    <div id="navbar" class="fade-in" style="--d: 0ms"></div>
 
     <script>
-      /* navbar fetch script */
       const BASE = "/portfolio-website";
-
       fetch(`${BASE}/navbar.html`)
         .then((res) => res.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
-
           document.querySelectorAll("#navbar a[data-href]").forEach((a) => {
             a.href = BASE + a.getAttribute("data-href");
           });
@@ -23,9 +20,9 @@
     </script>
 
     <main class="projects">
-      <section class="content-split">
+      <section class="content-split fade-in" style="--d: 150ms">
         <div class="text-column">
-          <div class="panel">
+          <div class="panel fade-in" style="--d: 300ms">
             <h1>Tech Repair and Custom Computers</h1>
             <p>
               Over the past 6 years, I have served my local community by
@@ -40,17 +37,17 @@
           </div>
         </div>
 
-        <div class="image-panel panel">
-          <div class="image-grid">
+        <div class="image-panel panel fade-in" style="--d: 450ms">
+          <div class="image-grid fade-in" style="--d: 600ms">
             <img src="./images/pcbuilds/pc2.jpg" />
             <img src="./images/pcbuilds/pc3.jpg" />
             <img src="./images/pcbuilds/pc4.jpg" />
             <img src="./images/pcbuilds/pc5.jpg" />
           </div>
 
-          <div class="section-divider"></div>
+          <div class="section-divider fade-in" style="--d: 750ms"></div>
 
-          <div class="media-grid">
+          <div class="media-grid fade-in" style="--d: 900ms">
             <div class="media-tile">
               <video
                 controls
@@ -102,11 +99,11 @@
         </div>
       </section>
 
-      <div class="section-divider"></div>
+      <div class="section-divider fade-in" style="--d: 1050ms"></div>
 
-      <section class="content-split reverse">
+      <section class="content-split reverse fade-in" style="--d: 1200ms">
         <div class="text-column">
-          <div class="panel">
+          <div class="panel fade-in" style="--d: 1350ms">
             <h1>eBay and Local Controller Repair Business</h1>
             <p>
               Since September of 2024, I have turned a hobby I picked up into a
@@ -128,7 +125,7 @@
           </div>
         </div>
 
-        <div class="image-panel panel">
+        <div class="image-panel panel fade-in" style="--d: 1500ms">
           <div class="reviews-carousel">
             <img
               class="review-card"
@@ -209,6 +206,7 @@
         </div>
       </section>
     </main>
+
     <div id="lightbox" class="lightbox" aria-hidden="true">
       <button class="lightbox-close" aria-label="Close">&times;</button>
       <img id="lightbox-img" alt="" />
