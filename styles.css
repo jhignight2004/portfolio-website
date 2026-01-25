@@ -232,7 +232,7 @@ html {
   height: 160px;
 
   object-fit: contain;
-  background: #000;
+  background: rgba(24, 26, 27);
   border-radius: 14px;
   border: 3px solid rgba(255, 255, 255, 0.7);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -240,7 +240,7 @@ html {
   /* spacing math */
   --gap: 180px; /* distance between cards */
   --count: 15; /* number of cards */
-  --slot: 8s; /* time between cards */
+  --slot: 10s; /* time between cards */
   --travel: calc(var(--gap) * var(--count)); /* total travel distance */
   --start: calc(var(--travel) / 2);
   --end: calc(var(--travel) / -2);
