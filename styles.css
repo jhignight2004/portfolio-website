@@ -171,8 +171,11 @@ html {
 /* content splitter */
 .content-split {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas: "text media";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "text"
+    "media";
   gap: 32px;
   align-items: stretch;
   padding: 24px;
@@ -191,19 +194,6 @@ html {
 
 .content-split .image-panel {
   grid-area: media;
-}
-
-.content-split.reverse {
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "text"
-    "media";
-  justify-items: center;
-}
-
-.content-split.reverse .image-panel {
-  width: 100%;
-  max-width: 840px;
 }
 
 .section-divider {
