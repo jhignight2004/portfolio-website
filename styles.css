@@ -90,7 +90,7 @@ html {
   padding: 12px 24px;
 
   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.18),
+    0 2px 4px rgba(0, 0, 0, 0.3),
     0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -565,4 +565,37 @@ html {
   width: 800px;
   max-width: 100%;
   height: auto;
+}
+
+.site-footer {
+  background-color: rgb(40, 45, 25);
+  padding: 16px 24px;
+  margin-top: 64px;
+
+  box-shadow:
+    0 -2px 4px rgba(0, 0, 0, 0.3),
+    0 -8px 20px rgba(0, 0, 0, 0.15);
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-link:hover {
+  color: white;
+  text-decoration-thickness: 2px;
+}
+
+.footer-link::after {
+  content: " ↗";
+  font-size: 0.8em;
+  opacity: 0.7;
 }
