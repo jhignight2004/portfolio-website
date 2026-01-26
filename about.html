@@ -11,20 +11,88 @@
     <script>
       const BASE = "/portfolio-website";
 
+      function setNavSpacerHeight() {
+        const header = document.querySelector("#navbar .navbar");
+        const host = document.getElementById("navbar");
+        if (!header || !host) return;
+
+        const h = Math.ceil(header.getBoundingClientRect().height);
+        host.style.setProperty("--nav-h", `${h}px`);
+      }
+
       fetch(`${BASE}/navbar.html`)
         .then((res) => res.text())
         .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
+          const host = document.getElementById("navbar");
+          host.innerHTML = data;
 
-          document.querySelectorAll("#navbar a[data-href]").forEach((a) => {
+          host.querySelectorAll("a[data-href]").forEach((a) => {
             a.href = BASE + a.getAttribute("data-href");
           });
+
+          requestAnimationFrame(setNavSpacerHeight);
         });
+
+      window.addEventListener("resize", () =>
+        requestAnimationFrame(setNavSpacerHeight),
+      );
     </script>
 
     <main class="about-page">
-      <section class="about">
-        <img src="./content/images/headshot.jpg" class="headshot" />
+      <section class="about fade-in" style="--d: 150ms">
+        <img
+          src="./content/images/headshot.jpg"
+          class="headshot fade-in"
+          style="--d: 300ms"
+          alt="Headshot"
+        />
+
+        <div class="text-column about-text">
+          <div class="about-panel fade-in" style="--d: 450ms">
+            <h1>Jason Hignight</h1>
+            <h2>B.S. Computer Engineering</h2>
+          </div>
+
+          <section class="about-split fade-in" style="--d: 600ms">
+            <div class="about-panel list fade-in" style="--d: 750ms">
+              <h3>Skills</h3>
+              <div class="about-divider fade-in" style="--d: 900ms"></div>
+
+              <ul class="skills-list fade-in" style="--d: 1050ms">
+                <li>Electronics Repair</li>
+                <li>Microsoldering</li>
+                <li>Embedded Systems Development</li>
+                <li>Linux</li>
+                <li>Home Networking</li>
+                <li>CAD Design</li>
+                <li>3D Printing</li>
+                <li>Customer Service</li>
+                <li>Python, C++, HTML, CSS</li>
+              </ul>
+            </div>
+
+            <div class="about-panel list fade-in" style="--d: 900ms">
+              <h3>Information</h3>
+              <div class="about-divider fade-in" style="--d: 1050ms"></div>
+
+              <dl class="info-list fade-in" style="--d: 1200ms">
+                <div class="info-row">
+                  <dt>Education</dt>
+                  <dd>Mississippi State University — Senior</dd>
+                </div>
+
+                <div class="info-row">
+                  <dt>GPA</dt>
+                  <dd>3.26</dd>
+                </div>
+              </dl>
+
+              <div class="logo fade-in" style="--d: 1350ms">
+                <img src="./content/images/state-logo.png" alt="MSU logo" />
+              </div>
+            </div>
+          </section>
+        </div>
       </section>
     </main>
   </body>
