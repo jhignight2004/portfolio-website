@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jason Hignight</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <script>
+      const BASE = "/portfolio-website";
+
+      fetch(`${BASE}/navbar.html`)
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+
+          document.querySelectorAll("#navbar a[data-href]").forEach((a) => {
+            a.href = BASE + a.getAttribute("data-href");
+          });
+        });
+    </script>
+
+    <main class="about-page">
+      <section class="about">
+        <img src="./content/images/headshot.jpg" class="headshot" />
+      </section>
+    </main>
+  </body>
+</html>

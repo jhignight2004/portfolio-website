@@ -5,18 +5,36 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <div id="navbar" class="fade-in" style="--d: 0ms"></div>
+    <div id="navbar"></div>
 
     <script>
       const BASE = "/portfolio-website";
+
+      function setNavSpacerHeight() {
+        const header = document.querySelector("#navbar .navbar");
+        const host = document.getElementById("navbar");
+        if (!header || !host) return;
+
+        const h = Math.ceil(header.getBoundingClientRect().height);
+        host.style.setProperty("--nav-h", `${h}px`);
+      }
+
       fetch(`${BASE}/navbar.html`)
         .then((res) => res.text())
         .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-          document.querySelectorAll("#navbar a[data-href]").forEach((a) => {
+          const host = document.getElementById("navbar");
+          host.innerHTML = data;
+
+          host.querySelectorAll("a[data-href]").forEach((a) => {
             a.href = BASE + a.getAttribute("data-href");
           });
+
+          requestAnimationFrame(setNavSpacerHeight);
         });
+
+      window.addEventListener("resize", () =>
+        requestAnimationFrame(setNavSpacerHeight),
+      );
     </script>
 
     <main class="projects">
@@ -206,10 +224,5 @@
         </div>
       </section>
     </main>
-
-    <div id="lightbox" class="lightbox" aria-hidden="true">
-      <button class="lightbox-close" aria-label="Close">&times;</button>
-      <img id="lightbox-img" alt="" />
-    </div>
   </body>
 </html>
